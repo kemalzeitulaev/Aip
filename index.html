@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Porsche — There is no substitute</title>
+  <meta name="description" content="Анимированный сайт о Porsche: история, модели 911, Taycan, Cayenne, дизайн и автоспорт." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#top">Porsche</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-label="Меню">☰</button>
+    <ul class="nav-links">
+      <li><a href="#history">История</a></li>
+      <li><a href="#types">Модели</a></li>
+      <li><a href="#design">Дизайн</a></li>
+      <li><a href="#track">Трасса</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-media">
+      <img src="assets/911.jpg" alt="Porsche 911 Carrera 4S" />
+    </div>
+    <div class="hero-shade"></div>
+    <div class="hero-copy">
+      <p class="eyebrow">Stuttgart · since 1948</p>
+      <h1>PORSCHE</h1>
+      <p class="tagline">There is no substitute.</p>
+      <p class="lead">Не просто машины. Характер, который слышно ещё до того, как увидишь фары. Скорость, точность и силуэт, который узнаёшь за секунду.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#types">Смотреть модели</a>
+        <a class="btn btn-ghost" href="#history">История марки</a>
+      </div>
+    </div>
+    <div class="road" aria-hidden="true">
+      <div class="lanes"></div>
+      <svg class="car-drive" viewBox="0 0 560 180" fill="none">
+        <defs>
+          <linearGradient id="body" x1="40" y1="40" x2="520" y2="140">
+            <stop stop-color="#f4f1ec" />
+            <stop offset="1" stop-color="#b9b3ab" />
+          </linearGradient>
+          <radialGradient id="lamp" cx="0.2" cy="0.5" r="0.8">
+            <stop stop-color="#fff7d1" />
+            <stop offset="1" stop-color="#c8102e" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <ellipse class="beam" cx="28" cy="98" rx="42" ry="12" fill="url(#lamp)" />
+        <path d="M86 118c12-42 54-70 108-74 40-4 86 2 128 16 22 8 44 8 70 2 48-10 92 8 126 32 10 8 22 14 36 18v14H98l-12-8z" fill="url(#body)" />
+        <path d="M168 50c46-10 96-8 142 12l-22 32H186L168 50z" fill="#15181d" />
+        <path d="M186 50l18 44h102l22-32" stroke="#8d8680" stroke-width="2" />
+        <path d="M96 116h372" stroke="#c8102e" stroke-width="4" />
+        <path d="M430 78c18 2 48 18 62 34" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round" />
+        <rect x="48" y="100" width="38" height="14" rx="7" fill="#fff3c2" />
+        <rect x="478" y="104" width="22" height="8" rx="2" fill="#c8102e" />
+        <g class="wheel">
+          <circle cx="156" cy="132" r="24" fill="#0c0c0d" stroke="#c4a574" stroke-width="3" />
+          <circle cx="156" cy="132" r="7" fill="#d9d3c8" />
+          <path d="M156 112v16M156 136v16M136 132h16M160 132h16" stroke="#6f6a64" stroke-width="2" />
+        </g>
+        <g class="wheel">
+          <circle cx="400" cy="132" r="24" fill="#0c0c0d" stroke="#c4a574" stroke-width="3" />
+          <circle cx="400" cy="132" r="7" fill="#d9d3c8" />
+          <path d="M400 112v16M400 136v16M380 132h16M404 132h16" stroke="#6f6a64" stroke-width="2" />
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span><b>911</b> · Taycan · Cayenne · Panamera · 718 · GT3 RS · 919 Hybrid · Macan · 911 · Taycan · Cayenne · Panamera · 718 · GT3 RS · 919 Hybrid · Macan</span>
+      <span><b>911</b> · Taycan · Cayenne · Panamera · 718 · GT3 RS · 919 Hybrid · Macan · 911 · Taycan · Cayenne · Panamera · 718 · GT3 RS · 919 Hybrid · Macan</span>
+    </div>
+  </div>
+
+  <main>
+    <section id="history">
+      <div class="wrap split">
+        <div data-reveal>
+          <p class="kicker">Глава 01</p>
+          <h2>История, которую слышно</h2>
+          <p class="intro">Porsche — это идея Фердинанда Порше, которая в 1948 году стала автомобилем. С тех пор марка не гонится за шумом вокруг: она делает машины, которые хочется вести, а не просто показать.</p>
+          <div class="facts">
+            <article class="fact">
+              <strong>1948 · 356</strong>
+              <p>Первый Porsche. Лёгкий, точный, собранный вокруг идеи, что удовольствие от дороги важнее лишних килограммов.</p>
+            </article>
+            <article class="fact">
+              <strong>1963 · 911</strong>
+              <p>Появляется силуэт, который не устаревает. Задний мотор, крутые фары и характер, который до сих пор задаёт тон всей марке.</p>
+            </article>
+            <article class="fact">
+              <strong>Сегодня</strong>
+              <p>От классических купе до Taycan. Бензин, гибрид и электричество — но пропорции и посадка остаются Porsche.</p>
+            </article>
+          </div>
+        </div>
+        <div class="photo-frame" data-reveal>
+          <img src="assets/museum.jpg" alt="Классический Porsche 911 Carrera Turbo в музее" />
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="stats">
+          <div class="stat"><b>1948</b><span>год основания</span></div>
+          <div class="stat"><b>911</b><span>икона марки</span></div>
+          <div class="stat"><b>19×</b><span>побед в Le Mans</span></div>
+          <div class="stat"><b>Zuffenhausen</b><span>сердце Stuttgart</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="models" id="types">
+      <div class="wrap">
+        <p class="kicker">Глава 02</p>
+        <h2>Модели: своя скорость для каждого</h2>
+        <p class="intro">Как у языка есть типы данных, у Porsche есть свои формы характера. Купе, родстер, гран туризмо, спорткроссовер и электрический гранд-турер.</p>
+        <div class="grid">
+          <article class="card wide tall">
+            <div class="card-photo"><img src="assets/911.jpg" alt="Porsche 911 Carrera 4S" /></div>
+            <div class="card-body">
+              <p class="tag">Икона</p>
+              <h3>911</h3>
+              <p>Эталон марки. Заднемоторная компоновка, посадка «как в перчатке» и силуэт, который читается с любого расстояния. Carrera — для дороги, GT3 — для тех, кому мало обычного дня.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img src="assets/gt3.jpg" alt="Porsche 911 GT3 RS" /></div>
+            <div class="card-body">
+              <p class="tag">Motorsport</p>
+              <h3>GT3 RS</h3>
+              <p>Антикрыло, воздух и одержимость кругом. Это уже не про комфорт — про то, как далеко можно зайти, оставаясь на номерах.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img src="assets/boxster.jpg" alt="Porsche 718 Boxster GTS 4.0" /></div>
+            <div class="card-body">
+              <p class="tag">Родстер</p>
+              <h3>718 Boxster</h3>
+              <p>Среднемоторный диалог с ветром. Короткая база, точный нос и открытое небо — Porsche, который улыбается чаще остальных.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img src="assets/taycan.jpg" alt="Porsche Taycan" /></div>
+            <div class="card-body">
+              <p class="tag">Electric</p>
+              <h3>Taycan</h3>
+              <p>Электричество без потери характера. Низкий, быстрый, с мгновенной тягой — доказательство, что будущее тоже может звучать по-поршевски.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img src="assets/cayenne.jpg" alt="Porsche Cayenne GTS" /></div>
+            <div class="card-body">
+              <p class="tag">SUV</p>
+              <h3>Cayenne</h3>
+              <p>Кроссовер, который не извинился за то, что он Porsche. Высокая посадка, но всё ещё желание искать дугу, а не только парковку.</p>
+            </div>
+          </article>
+          <article class="card feature">
+            <div class="card-photo"><img src="assets/panamera.jpg" alt="Porsche Panamera e-hybrid" /></div>
+            <div class="card-body">
+              <p class="tag">Gran Turismo</p>
+              <h3>Panamera</h3>
+              <p>Четыре двери, длинная дорога и ощущение, что ночь между городами принадлежит тебе. Комфорт, который не выключает драйверский инстинкт.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="design">
+      <div class="wrap design-grid">
+        <div class="design-copy" data-reveal>
+          <p class="kicker">Глава 03</p>
+          <h2>Дизайн как скорость, застывшая в металле</h2>
+          <p class="intro">У Porsche узнаваемый почерк: длинный капот, короткие свесы, линия плеча и фары, которые смотрят прямо на тебя.</p>
+          <div class="principles">
+            <div class="principle">
+              <b>01</b>
+              <div>
+                <strong>Пропорции важнее декора</strong>
+                <p>Красота здесь не в хроме, а в том, как кузов сидит на колёсах.</p>
+              </div>
+            </div>
+            <div class="principle">
+              <b>02</b>
+              <div>
+                <strong>Свет как подпись</strong>
+                <p>Четыре точки фар и сплошная задняя лента — это уже язык марки, а не просто оптика.</p>
+              </div>
+            </div>
+            <div class="principle">
+              <b>03</b>
+              <div>
+                <strong>Функция, которую видно</strong>
+                <p>Воздухозаборники, диффузор и антикрыло работают. Красота — побочный эффект инженерии.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery" data-reveal>
+          <figure class="span-2">
+            <img src="assets/gt3.jpg" alt="Корма Porsche 911 GT3 RS" />
+            <figcaption>GT3 RS · воздух и характер</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/taycan.jpg" alt="Передняя оптика Porsche Taycan" />
+            <figcaption>Taycan</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/boxster.jpg" alt="Профиль Porsche 718 Boxster" />
+            <figcaption>718</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="track">
+      <div class="wrap">
+        <p class="kicker">Глава 04</p>
+        <h2>Трасса пишет легенду</h2>
+        <p class="intro">Победы в Ле-Мане, Нордшляйфе и формулах выносливости — не маркетинг. Это лаборатория, из которой 911 и GT-машины возвращаются на дорогу злее и точнее.</p>
+        <div class="track-hero">
+          <img src="assets/track.jpg" alt="Porsche 919 Hybrid Evo" />
+          <div class="track-copy">
+            <h2>919 Hybrid</h2>
+            <p>Прототип, который доказал: гибрид может быть оружием, а не компромиссом. От него к Taycan — прямая линия инженерии: энергия, баланс, скорость без лишнего веса в идеях.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+      <div class="wrap" data-reveal>
+        <p class="kicker">Глава 05</p>
+        <h2>Контакты</h2>
+        <p class="intro">Если тоже слышишь в Porsche не просто машину, а характер — пиши.</p>
+        <ul class="contact-list">
+          <li>GitHub: <a href="https://github.com/kemalzeitulaev">kemalzeitulaev</a></li>
+          <li>Email: <a href="mailto:kemalzeitulaev@gmail.com">kemalzeitulaev@gmail.com</a></li>
+          <li>Сайт: учебный лендинг о марке Porsche</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Kemal Zeitulaev. Сайт создан в учебных целях. Фото: Wikimedia Commons.
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
