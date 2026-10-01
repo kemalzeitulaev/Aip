@@ -11,7 +11,18 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="nav"></header>
+    <header class="nav">
+    <a class="logo" href="index.html">Porsche</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-label="Меню">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="history.html">История</a></li>
+      <li><a href="models.html">Модели</a></li>
+      <li><a href="design.html">Дизайн</a></li>
+      <li><a href="motorsport.html">Трасса</a></li>
+      <li><a href="contact.html">Контакты</a></li>
+    </ul>
+  </header>
 
   <section class="hero">
     <div class="hero-media">
@@ -69,6 +80,28 @@
   </div>
 
   <main>
+    <section>
+      <div class="wrap">
+        <p class="kicker">Страницы сайта</p>
+        <h2>12 отдельных страниц</h2>
+        <p class="intro">Это не один длинный экран. У каждого раздела свой адрес — открывай из меню сверху или отсюда.</p>
+        <div class="pages-map">
+          <a href="index.html"><small>01</small><b>Главная</b></a>
+          <a href="history.html"><small>02</small><b>История</b></a>
+          <a href="models.html"><small>03</small><b>Модели</b></a>
+          <a href="911.html"><small>04</small><b>911</b></a>
+          <a href="gt3.html"><small>05</small><b>GT3 RS</b></a>
+          <a href="boxster.html"><small>06</small><b>718 Boxster</b></a>
+          <a href="taycan.html"><small>07</small><b>Taycan</b></a>
+          <a href="cayenne.html"><small>08</small><b>Cayenne</b></a>
+          <a href="panamera.html"><small>09</small><b>Panamera</b></a>
+          <a href="design.html"><small>10</small><b>Дизайн</b></a>
+          <a href="motorsport.html"><small>11</small><b>Трасса</b></a>
+          <a href="contact.html"><small>12</small><b>Контакты</b></a>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="wrap">
         <p class="kicker">Марка</p>
@@ -132,7 +165,33 @@
     </section>
   </main>
 
-  <footer class="site-footer" data-footer></footer>
+    <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <a class="logo" href="index.html">Porsche</a>
+        <p class="footer-tag">There is no substitute.</p>
+      </div>
+      <div>
+        <h3>Разделы</h3>
+        <a href="index.html">Главная</a>
+        <a href="history.html">История</a>
+        <a href="models.html">Модели</a>
+        <a href="design.html">Дизайн</a>
+        <a href="motorsport.html">Трасса</a>
+        <a href="contact.html">Контакты</a>
+      </div>
+      <div>
+        <h3>Страницы моделей</h3>
+        <a href="911.html">911</a>
+        <a href="gt3.html">GT3 RS</a>
+        <a href="boxster.html">718 Boxster</a>
+        <a href="taycan.html">Taycan</a>
+        <a href="cayenne.html">Cayenne</a>
+        <a href="panamera.html">Panamera</a>
+      </div>
+    </div>
+    <p class="copy">© 2026 Kemal Zeitulaev. Сайт создан в учебных целях. Фото: Wikimedia Commons.</p>
+  </footer>
   <script src="app.js"></script>
 </body>
 </html>

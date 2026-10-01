@@ -11,7 +11,18 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="nav"></header>
+    <header class="nav">
+    <a class="logo" href="index.html">Porsche</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-label="Меню">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="history.html">История</a></li>
+      <li><a href="models.html">Модели</a></li>
+      <li><a href="design.html">Дизайн</a></li>
+      <li><a href="motorsport.html">Трасса</a></li>
+      <li><a href="contact.html">Контакты</a></li>
+    </ul>
+  </header>
   <section class="hero page-hero">
     <div class="hero-media"><img src="assets/track.jpg" alt="Porsche 919 Hybrid" /></div>
     <div class="hero-shade"></div>
@@ -58,7 +69,33 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer" data-footer></footer>
+    <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <a class="logo" href="index.html">Porsche</a>
+        <p class="footer-tag">There is no substitute.</p>
+      </div>
+      <div>
+        <h3>Разделы</h3>
+        <a href="index.html">Главная</a>
+        <a href="history.html">История</a>
+        <a href="models.html">Модели</a>
+        <a href="design.html">Дизайн</a>
+        <a href="motorsport.html">Трасса</a>
+        <a href="contact.html">Контакты</a>
+      </div>
+      <div>
+        <h3>Страницы моделей</h3>
+        <a href="911.html">911</a>
+        <a href="gt3.html">GT3 RS</a>
+        <a href="boxster.html">718 Boxster</a>
+        <a href="taycan.html">Taycan</a>
+        <a href="cayenne.html">Cayenne</a>
+        <a href="panamera.html">Panamera</a>
+      </div>
+    </div>
+    <p class="copy">© 2026 Kemal Zeitulaev. Сайт создан в учебных целях. Фото: Wikimedia Commons.</p>
+  </footer>
   <script src="app.js"></script>
 </body>
 </html>
