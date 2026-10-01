@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Контакты — Porsche сайт</title>
+  <meta name="description" content="Связаться с автором учебного сайта о Porsche." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav"></header>
+  <section class="hero page-hero">
+    <div class="hero-media"><img src="assets/panamera.jpg" alt="Porsche Panamera" /></div>
+    <div class="hero-shade"></div>
+    <div class="hero-copy">
+      <p class="breadcrumb"><a href="index.html">Главная</a> <span>/</span> Контакты</p>
+      <p class="eyebrow">Глава 05</p>
+      <h1>Контакты</h1>
+      <p class="lead">Если тоже слышишь в Porsche не просто машину, а характер — напиши.</p>
+    </div>
+  </section>
+  <main>
+    <section class="contacts">
+      <div class="wrap form-grid">
+        <div data-reveal>
+          <h2>Связь</h2>
+          <p class="intro">Учебный лендинг о марке. Письма с формы никуда не уходят — это интерфейс, а не почтовый сервер.</p>
+          <ul class="contact-list">
+            <li>GitHub: <a href="https://github.com/kemalzeitulaev">kemalzeitulaev</a></li>
+            <li>Email: <a href="mailto:kemalzeitulaev@gmail.com">kemalzeitulaev@gmail.com</a></li>
+            <li>Сайт: <a href="https://kemalzeitulaev.github.io/Aip/">kemalzeitulaev.github.io/Aip</a></li>
+          </ul>
+        </div>
+        <form class="contact-form" data-reveal>
+          <label>Имя
+            <input type="text" name="name" required placeholder="Как к тебе обращаться" />
+          </label>
+          <label>Email
+            <input type="email" name="email" required placeholder="name@mail.com" />
+          </label>
+          <label>Сообщение
+            <textarea name="message" required placeholder="Какая модель ближе — 911 или Taycan?"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Отправить</button>
+          <p class="form-note" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" data-footer></footer>
+  <script src="app.js"></script>
+</body>
+</html>
