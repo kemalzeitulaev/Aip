@@ -5,9 +5,12 @@ if (/\/Aip$/i.test(location.pathname)) {
 const nav = document.querySelector(".nav");
 const menuBtn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".nav-links");
+const moreBtn = document.querySelector(".nav-more-btn");
+const moreItem = document.querySelector(".nav-more");
 const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
 const page = !file || file === "aip" ? "index.html" : file;
 const modelPages = ["911.html", "gt3.html", "boxster.html", "taycan.html", "cayenne.html", "panamera.html"];
+const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const PAGES = [
   { href: "index.html", title: "Главная" },
@@ -37,8 +40,9 @@ const activeFor = {
   "models.html": ["models.html", ...modelPages],
   "design.html": ["design.html"],
   "motorsport.html": ["motorsport.html"],
-  "gallery.html": ["gallery.html", "garage.html", "museum.html", "colors.html"],
-  "contact.html": ["contact.html", "about.html"]
+  "gallery.html": ["gallery.html"],
+  "garage.html": ["garage.html"],
+  "contact.html": ["contact.html"]
 };
 
 menu?.querySelectorAll("a").forEach((a) => {
@@ -53,16 +57,34 @@ window.addEventListener("scroll", () => {
   nav?.classList.toggle("scrolled", window.scrollY > 20);
 });
 
-menuBtn?.addEventListener("click", () => {
+menuBtn?.addEventListener("click", (e) => {
+  e.stopPropagation();
   const open = menu.classList.toggle("open");
   menuBtn.setAttribute("aria-expanded", String(open));
+  moreItem?.classList.remove("open");
+});
+
+moreBtn?.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  const open = moreItem.classList.toggle("open");
+  moreBtn.setAttribute("aria-expanded", String(open));
 });
 
 menu?.querySelectorAll("a").forEach((a) => {
   a.addEventListener("click", () => {
     menu.classList.remove("open");
+    moreItem?.classList.remove("open");
     menuBtn?.setAttribute("aria-expanded", "false");
+    moreBtn?.setAttribute("aria-expanded", "false");
   });
+});
+
+document.addEventListener("click", (e) => {
+  if (!moreItem?.contains(e.target)) {
+    moreItem?.classList.remove("open");
+    moreBtn?.setAttribute("aria-expanded", "false");
+  }
 });
 
 function revealVisible() {
@@ -105,20 +127,37 @@ wipe.className = "wipe";
 wipe.innerHTML = "<span>Porsche</span>";
 document.body.append(wipe);
 
+function resetWipe() {
+  wipe.classList.remove("go");
+}
+
+window.addEventListener("pageshow", resetWipe);
+window.addEventListener("pagehide", resetWipe);
+
 document.addEventListener("click", (e) => {
-  const a = e.target.closest('a[href$=".html"]');
-  if (!a) return;
-  const href = a.getAttribute("href");
-  if (!href || href.startsWith("http") || a.target === "_blank") return;
-  if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const a = e.target.closest("a[href]");
+  if (!a || a.target === "_blank" || a.hasAttribute("download")) return;
+  let url;
+  try {
+    url = new URL(a.href, location.href);
+  } catch {
+    return;
+  }
+  if (url.origin !== location.origin) return;
+  if (url.protocol === "mailto:" || url.protocol === "tel:") return;
+  const isPage = /\.html$/i.test(url.pathname) || /\/Aip\/?$/i.test(url.pathname);
+  if (!isPage) return;
+  if (url.pathname === location.pathname && url.hash) return;
+  if (reduced) return;
   e.preventDefault();
   wipe.classList.add("go");
-  setTimeout(() => {
-    location.href = href;
-  }, 420);
+  window.setTimeout(() => {
+    location.assign(url.href);
+  }, 380);
 });
 
-const fine = window.matchMedia("(pointer: fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const fine = window.matchMedia("(pointer: fine)").matches && !reduced;
 if (fine) {
   const orb = document.createElement("div");
   const dot = document.createElement("div");
@@ -130,12 +169,12 @@ if (fine) {
     dot.style.top = e.clientY + "px";
     orb.animate({ left: e.clientX + "px", top: e.clientY + "px" }, { duration: 280, fill: "forwards" });
   });
-  document.querySelectorAll(".card, .pages-map a, .preview-card, .photo-frame, .related a, .swatch, .gallery-wall figure").forEach((el) => {
+  document.querySelectorAll(".photo-frame, .swatch, .gallery-wall figure, .stat").forEach((el) => {
     el.addEventListener("mousemove", (e) => {
       const r = el.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - 0.5;
       const y = (e.clientY - r.top) / r.height - 0.5;
-      el.style.transform = `perspective(900px) rotateY(${x * 18}deg) rotateX(${-y * 12}deg) translateZ(16px)`;
+      el.style.transform = `perspective(900px) rotateY(${x * 12}deg) rotateX(${-y * 8}deg)`;
     });
     el.addEventListener("mouseleave", () => {
       el.style.transform = "";
@@ -161,7 +200,8 @@ const ring = document.querySelector(".ring");
 if (ring) {
   const faces = [...ring.children];
   const step = 360 / faces.length;
+  const depth = window.innerWidth < 700 ? 220 : 380;
   faces.forEach((face, i) => {
-    face.style.transform = `rotateY(${i * step}deg) translateZ(380px)`;
+    face.style.transform = `rotateY(${i * step}deg) translateZ(${depth}px)`;
   });
 }
