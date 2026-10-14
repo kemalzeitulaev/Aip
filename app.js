@@ -6,7 +6,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/porshe2026');
 var session = require('express-session');
-var MongoStore = require('connect-mongo');
+var MongoStore = require('connect-mongo').MongoStore;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -31,7 +31,7 @@ app.use(session({
   proxy: true,
   resave: true,
   saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/porshe2026' })
+  store: new MongoStore({ mongoUrl: 'mongodb://localhost/porshe2026' })
 }));
 
 app.use(function(req, res, next) {
