@@ -1,5 +1,13 @@
 <% layout('./layout/page.ejs') %>
 
+<p class="hello">
+<% if (user) { %>
+  Привет <%= user.username %>
+<% } else { %>
+  Войдите, чтобы смотреть страницы моделей.
+<% } %>
+</p>
+
 <section class="hero">
   <img src="/images/911.jpg" alt="Porsche 911 Carrera 4S">
   <div class="hero-copy">
