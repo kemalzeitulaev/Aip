@@ -1,4 +1,36 @@
 <% layout('./layout/page.ejs') %>
 
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<section class="hero">
+  <img src="/images/911.jpg" alt="Porsche 911 Carrera 4S">
+  <div class="hero-copy">
+    <p class="eyebrow">Stuttgart · since 1948</p>
+    <h1>Porsche</h1>
+    <p class="tagline">There is no substitute.</p>
+    <p class="lead">Три лица одной идеи: икона, трек и электричество. Те же модели, что открывают гараж на сайте Porsche.</p>
+  </div>
+</section>
+
+<section class="garage">
+  <p class="kicker">Гараж</p>
+  <h2>Модели, с которых начинается разговор</h2>
+  <div class="grid">
+    <a class="card" href="/911">
+      <img src="/images/911.jpg" alt="Porsche 911">
+      <p class="tag">Икона</p>
+      <h3>911</h3>
+      <p>Эталон марки. Задний мотор и силуэт, который не стареет.</p>
+    </a>
+    <a class="card" href="/gt3">
+      <img src="/images/gt3.jpg" alt="Porsche GT3 RS">
+      <p class="tag">Motorsport</p>
+      <h3>GT3 RS</h3>
+      <p>Воздух, антикрыло и одержимость кругом.</p>
+    </a>
+    <a class="card" href="/taycan">
+      <img src="/images/taycan.jpg" alt="Porsche Taycan">
+      <p class="tag">Electric</p>
+      <h3>Taycan</h3>
+      <p>Будущее, которое всё ещё едет как Porsche.</p>
+    </a>
+  </div>
+</section>

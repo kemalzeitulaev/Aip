@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
  <head>
-   <title><%= title %></title>
-   <link rel='stylesheet' href='/stylesheets/style.css' />
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title><%= title === 'Porsche' ? 'Porsche' : title + ' — Porsche' %></title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="/stylesheets/style.css">
  </head>
  <body>
+   <header class="nav">
+     <a class="logo" href="/">Porsche</a>
+     <nav class="nav-links">
+       <a href="/">Главная</a>
+       <a href="/911">911</a>
+       <a href="/gt3">GT3 RS</a>
+       <a href="/taycan">Taycan</a>
+       <a href="https://kemalzeitulaev.github.io/Aip/">Весь сайт</a>
+     </nav>
+   </header>
    <%- body %>
+   <footer class="site-footer">
+     <a class="logo" href="/">Porsche</a>
+     <p>There is no substitute.</p>
+     <p class="copy">Учебный сервер по сайту Kemal Zeitulaev. Фото те же, что на полном сайте.</p>
+   </footer>
  </body>
 </html>
