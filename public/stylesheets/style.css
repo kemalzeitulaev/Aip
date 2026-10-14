@@ -165,6 +165,24 @@ h1 { font-size: clamp(72px, 12vw, 140px); letter-spacing: 0.04em; }
 
 .btn:hover { background: var(--red); }
 
+.auth {
+  padding: 64px 8vw 40px;
+  max-width: 760px;
+}
+
+.auth h1 { font-size: 64px; margin-bottom: 12px; }
+
+.auth p { color: var(--muted); margin-bottom: 20px; }
+
+.auth .form-label { color: var(--text); }
+
+.auth .form-control {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+}
+
+.hello { margin: 18px 8vw 0; }
+
 .error-page { padding: 80px 8vw; }
 
 .error-page pre {
