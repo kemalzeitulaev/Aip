@@ -3,6 +3,9 @@
 <section class="auth">
   <h1>Регистрация и вход</h1>
   <p>Введите имя пользователя и пароль, если такого пользователя нет, то он будет создан.</p>
+  <% if (error) { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } %>
   <form class="form-horizontal" action="/logreg" method="post">
     <div class="form-group">
       <label class="form-label">Имя</label>
