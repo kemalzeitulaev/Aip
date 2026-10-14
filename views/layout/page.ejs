@@ -11,16 +11,23 @@
    <link rel="stylesheet" href="/stylesheets/style.css">
  </head>
  <body>
-   <header class="nav">
-     <a class="logo" href="/">Porsche</a>
-     <nav class="nav-links">
-       <a href="/">Главная</a>
-       <a href="/911">911</a>
-       <a href="/gt3">GT3 RS</a>
-       <a href="/taycan">Taycan</a>
-       <a href="https://kemalzeitulaev.github.io/Aip/">Весь сайт</a>
-     </nav>
-   </header>
+   <nav class="navbar navbar-expand-lg navbar-dark porsche-nav">
+     <div class="container-fluid">
+       <a class="navbar-brand logo" href="/">Porsche</a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Меню">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+           <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+           <li class="nav-item"><a class="nav-link" href="/911">911</a></li>
+           <li class="nav-item"><a class="nav-link" href="/gt3">GT3 RS</a></li>
+           <li class="nav-item"><a class="nav-link" href="/taycan">Taycan</a></li>
+           <li class="nav-item"><a class="nav-link" href="https://kemalzeitulaev.github.io/Aip/">Весь сайт</a></li>
+         </ul>
+       </div>
+     </div>
+   </nav>
    <%- body %>
    <footer class="site-footer">
      <a class="logo" href="/">Porsche</a>
