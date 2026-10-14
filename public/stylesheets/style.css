@@ -25,19 +25,24 @@ img { max-width: 100%; display: block; }
 
 a { color: inherit; text-decoration: none; }
 
-.nav {
+.porsche-nav {
   position: sticky;
   top: 0;
   z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 18px 32px;
-  background: rgba(7, 7, 8, 0.72);
+  background: rgba(7, 7, 8, 0.92);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--line);
 }
+
+.porsche-nav .nav-link {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.porsche-nav .nav-link:hover,
+.porsche-nav .nav-link:focus { color: var(--text); }
 
 .logo {
   font-family: "Cormorant Garamond", serif;
@@ -45,21 +50,6 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.28em;
   text-transform: uppercase;
 }
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-
-.nav-links a {
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.nav-links a:hover { color: var(--text); }
 
 .hero {
   position: relative;
@@ -192,7 +182,6 @@ h1 { font-size: clamp(72px, 12vw, 140px); letter-spacing: 0.04em; }
 .copy { margin-top: 8px; font-size: 13px; }
 
 @media (max-width: 800px) {
-  .nav { align-items: flex-start; flex-direction: column; }
   .grid, .model { grid-template-columns: 1fr; }
   .model-media img { min-height: 280px; }
 }
