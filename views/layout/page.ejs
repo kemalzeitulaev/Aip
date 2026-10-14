@@ -27,7 +27,15 @@
            </li>
            <% })} %>
            <li class="nav-item"><a class="nav-link" href="https://kemalzeitulaev.github.io/Aip/">Весь сайт</a></li>
-           <li class="nav-item"><a class="nav-link" href="/logreg">Войти</a></li>
+           <% if (user) { %>
+             <li class="nav-item">
+               <form action="/logout" method="post">
+                 <button type="submit" class="nav-link">Выйти</button>
+               </form>
+             </li>
+           <% } else { %>
+             <li class="nav-item"><a class="nav-link" href="/logreg">Войти</a></li>
+           <% } %>
          </ul>
        </div>
      </div>
