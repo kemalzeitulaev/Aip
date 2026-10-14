@@ -1,35 +1,43 @@
 var express = require('express');
 var router = express.Router();
 
+var site = 'https://kemalzeitulaev.github.io/Aip';
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Porsche' });
 });
 
-/* Страница Коржика */
-router.get('/korzhik', function(req, res, next) {
-  res.render('cat', {
-    title: "Коржик",
-    picture: "/images/korzhik.png",
-    desc: "Средний котёнок в семье. Очень любит футбол. Любит бегать, прыгать и веселиться. Иногда делает такие вещи, что из них приходится выбираться всей семье. Одет в форму моряка."
+/* Страница 911 */
+router.get('/911', function(req, res, next) {
+  res.render('model', {
+    title: '911',
+    eyebrow: 'Икона',
+    picture: '/images/911.jpg',
+    desc: 'Силуэт 1963 года, который до сих пор задаёт тон. Задний мотор, посадка «как в перчатке» и характер на любой дороге.',
+    page: site + '/911.html'
   });
 });
 
-/* Страница Карамельки */
-router.get('/karamelka', function(req, res, next) {
-  res.render('cat', {
-    title: "Карамелька",
-    picture: "/images/karamelka.jpeg",
-    desc: "Самый младший член семьи. Коронная фраза — «Я знаю, что надо делать!». Носит красный бант и красное платье."
+/* Страница GT3 RS */
+router.get('/gt3', function(req, res, next) {
+  res.render('model', {
+    title: 'GT3 RS',
+    eyebrow: 'Motorsport',
+    picture: '/images/gt3.jpg',
+    desc: 'Антикрыло, воздух и круги. Это уже не про комфорт — про то, как далеко можно зайти, оставаясь на номерах.',
+    page: site + '/gt3.html'
   });
 });
 
-/* Страница Компота */
-router.get('/kompot', function(req, res, next) {
-  res.render('cat', {
-    title: "Компот",
-    picture: "/images/kompot.png",
-    desc: "Старший котёнок в семье. Ходит в школу. Очень любит грибы, читает про них энциклопедии. Любит игры на логику. Когда очень сильно огорчается, восклицает «Ну вот!» и начинает плакать. Обожает вкусно поесть. Носит зелёный костюм и шапку."
+/* Страница Taycan */
+router.get('/taycan', function(req, res, next) {
+  res.render('model', {
+    title: 'Taycan',
+    eyebrow: 'Electric',
+    picture: '/images/taycan.jpg',
+    desc: 'Низкий, быстрый, с мгновенной тягой. Доказательство, что будущее тоже может звучать по-поршевски.',
+    page: site + '/taycan.html'
   });
 });
 
