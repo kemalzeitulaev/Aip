@@ -10,7 +10,7 @@ async function main() {
   await client.connect();
   console.log('Connected successfully to server');
   const db = client.db(dbName);
-  const collection = db.collection('cats');
+  const collection = db.collection('porsche');
 
   await collection.deleteMany({});
   const insertResult = await collection.insertMany(data);
