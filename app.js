@@ -10,7 +10,7 @@ var MongoStore = require('connect-mongo').MongoStore;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var indexCats = require('./routes/cats');
+var indexPorsche = require('./routes/porsche');
 
 var app = express();
 
@@ -42,7 +42,7 @@ app.use(require('./middlewares/createMenu.js'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/cats', indexCats);
+app.use('/porsche', indexPorsche);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
