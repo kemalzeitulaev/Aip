@@ -7,7 +7,7 @@ async function main() {
     console.log(this.name + " сказал мяу");
   };
   const Cat = mongoose.model('Cat', schema);
-  const kitty = new Cat({ name: 'Пушок' });
+  const kitty = new Porsche({ name: 'Пушок' });
   await kitty.save();
   kitty.meow();
   await mongoose.disconnect();
