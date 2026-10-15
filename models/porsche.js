@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var catSchema = new Schema({
+var porscheSchema = new Schema({
   title: String,
   nick: {
     type: String,
@@ -16,4 +16,4 @@ var catSchema = new Schema({
   }
 });
 
-module.exports.Cat = mongoose.model("Cat", catSchema);
+module.exports.Porsche = mongoose.model("Porsche", porscheSchema, "porsche");
