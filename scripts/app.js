@@ -7,47 +7,47 @@ const menuBtn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".nav-links");
 const moreBtn = document.querySelector(".nav-more-btn");
 const moreItem = document.querySelector(".nav-more");
-const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-const page = !file || file === "aip" ? "index.html" : file;
-const modelPages = ["911.html", "gt3.html", "boxster.html", "taycan.html", "cayenne.html", "panamera.html"];
+function pageKey(pathname) {
+  let path = pathname.replace(/\/index\.html$/i, "").replace(/\.html$/i, "").replace(/\/+$/, "");
+  const mark = path.toLowerCase().lastIndexOf("/aip");
+  const rest = mark >= 0 ? path.slice(mark + 4).replace(/^\//, "") : path.replace(/^\//, "");
+  return (rest || "index").toLowerCase();
+}
+
+const page = pageKey(location.pathname);
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const PAGES = [
-  { href: "index.html", title: "Главная" },
-  { href: "history.html", title: "История" },
-  { href: "models.html", title: "Модели" },
-  { href: "911.html", title: "911" },
-  { href: "gt3.html", title: "GT3 RS" },
-  { href: "boxster.html", title: "718 Boxster" },
-  { href: "taycan.html", title: "Taycan" },
-  { href: "cayenne.html", title: "Cayenne" },
-  { href: "panamera.html", title: "Panamera" },
-  { href: "design.html", title: "Дизайн" },
-  { href: "motorsport.html", title: "Трасса" },
-  { href: "gallery.html", title: "Галерея" },
-  { href: "garage.html", title: "3D-гараж" },
-  { href: "museum.html", title: "Музей" },
-  { href: "colors.html", title: "Цвета" },
-  { href: "factory.html", title: "Завод" },
-  { href: "legends.html", title: "Легенды" },
-  { href: "about.html", title: "О сайте" },
-  { href: "contact.html", title: "Контакты" }
+  { href: "/Aip/", title: "Главная" },
+  { href: "/Aip/history/", title: "История" },
+  { href: "/Aip/models/", title: "Модели" },
+  { href: "/Aip/models/911.html", title: "911" },
+  { href: "/Aip/models/gt3.html", title: "GT3 RS" },
+  { href: "/Aip/models/boxster.html", title: "718 Boxster" },
+  { href: "/Aip/models/taycan.html", title: "Taycan" },
+  { href: "/Aip/models/cayenne.html", title: "Cayenne" },
+  { href: "/Aip/models/panamera.html", title: "Panamera" },
+  { href: "/Aip/design/", title: "Дизайн" },
+  { href: "/Aip/track/", title: "Трасса" },
+  { href: "/Aip/gallery/", title: "Галерея" },
+  { href: "/Aip/garage/", title: "3D-гараж" },
+  { href: "/Aip/history/museum.html", title: "Музей" },
+  { href: "/Aip/design/colors.html", title: "Цвета" },
+  { href: "/Aip/track/factory.html", title: "Завод" },
+  { href: "/Aip/history/legends.html", title: "Легенды" },
+  { href: "/Aip/about/", title: "О сайте" },
+  { href: "/Aip/contact/", title: "Контакты" }
 ];
 
-const activeFor = {
-  "index.html": ["index.html"],
-  "history.html": ["history.html"],
-  "models.html": ["models.html", ...modelPages],
-  "design.html": ["design.html"],
-  "motorsport.html": ["motorsport.html"],
-  "gallery.html": ["gallery.html"],
-  "garage.html": ["garage.html"],
-  "contact.html": ["contact.html"]
-};
-
 menu?.querySelectorAll("a").forEach((a) => {
-  const href = (a.getAttribute("href") || "").split("/").pop();
-  if ((activeFor[href] || [href]).includes(page)) {
+  let key = "";
+  try {
+    key = pageKey(new URL(a.getAttribute("href"), location.href).pathname);
+  } catch {
+    return;
+  }
+  const section = page.includes("/") ? page.split("/")[0] : page;
+  if (key === page || (key === section && page.startsWith(section + "/"))) {
     a.classList.add("active");
     a.setAttribute("aria-current", "page");
   }
@@ -146,7 +146,7 @@ document.addEventListener("click", (e) => {
   }
   if (url.origin !== location.origin) return;
   if (url.protocol === "mailto:" || url.protocol === "tel:") return;
-  const isPage = /\.html$/i.test(url.pathname) || /\/Aip\/?$/i.test(url.pathname);
+  const isPage = /\/Aip(\/|$)/i.test(url.pathname) && !/\.(css|js|jpg|jpeg|png|svg|gif|webp)$/i.test(url.pathname);
   if (!isPage) return;
   if (url.pathname === location.pathname && url.hash) return;
   if (reduced) return;
@@ -182,7 +182,7 @@ if (fine) {
   });
 }
 
-const idx = PAGES.findIndex((item) => item.href === page);
+const idx = PAGES.findIndex((item) => pageKey(item.href) === page);
 if (idx >= 0) {
   const prev = PAGES[(idx - 1 + PAGES.length) % PAGES.length];
   const next = PAGES[(idx + 1) % PAGES.length];
