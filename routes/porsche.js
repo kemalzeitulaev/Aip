@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET cats listing. */
 router.get('/', function(req, res, next) {
-  res.send('Новый маршрутизатор, для маршрутов, начинающихся с cats');
+  res.send('Новый маршрутизатор, для маршрутов, начинающихся с porsche');
 });
 
 /* Страница модели */
