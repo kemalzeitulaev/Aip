@@ -7,7 +7,7 @@ async function main() {
     title: "911",
     nick: "911"
   });
-  await cat.save();
+  await car.save();
   console.log('saved', car.nick);
   await mongoose.disconnect();
 }
