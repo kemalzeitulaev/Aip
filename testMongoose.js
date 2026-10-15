@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
-var Cat = require('./models/cat.js').Cat;
+var Porsche = require('./models/porsche.js').Porsche;
 
 async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/testMongoose2024');
-  var cat = new Cat({
+  var car = new Porsche({
     title: "911",
     nick: "911"
   });
   await cat.save();
-  console.log('saved', cat.nick);
+  console.log('saved', car.nick);
   await mongoose.disconnect();
 }
 
