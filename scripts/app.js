@@ -1,5 +1,7 @@
-if (/\/Aip$/i.test(location.pathname)) {
-  location.replace("/Aip/" + location.search + location.hash);
+const projectBase = "/" + (location.pathname.split("/").filter(Boolean)[0] || "");
+
+if (projectBase !== "/" && location.pathname === projectBase) {
+  location.replace(projectBase + "/" + location.search + location.hash);
 }
 
 const nav = document.querySelector(".nav");
@@ -9,8 +11,11 @@ const moreBtn = document.querySelector(".nav-more-btn");
 const moreItem = document.querySelector(".nav-more");
 function pageKey(pathname) {
   let path = pathname.replace(/\/index\.html$/i, "").replace(/\.html$/i, "").replace(/\/+$/, "");
-  const mark = path.toLowerCase().lastIndexOf("/aip");
-  const rest = mark >= 0 ? path.slice(mark + 4).replace(/^\//, "") : path.replace(/^\//, "");
+  const prefix = projectBase.toLowerCase();
+  const low = path.toLowerCase();
+  let rest = path.replace(/^\//, "");
+  if (prefix && prefix !== "/" && low === prefix) rest = "";
+  else if (prefix && prefix !== "/" && low.startsWith(prefix + "/")) rest = path.slice(prefix.length + 1);
   return (rest || "index").toLowerCase();
 }
 
@@ -18,25 +23,25 @@ const page = pageKey(location.pathname);
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const PAGES = [
-  { href: "/Aip/", title: "Главная" },
-  { href: "/Aip/history/", title: "История" },
-  { href: "/Aip/models/", title: "Модели" },
-  { href: "/Aip/models/911.html", title: "911" },
-  { href: "/Aip/models/gt3.html", title: "GT3 RS" },
-  { href: "/Aip/models/boxster.html", title: "718 Boxster" },
-  { href: "/Aip/models/taycan.html", title: "Taycan" },
-  { href: "/Aip/models/cayenne.html", title: "Cayenne" },
-  { href: "/Aip/models/panamera.html", title: "Panamera" },
-  { href: "/Aip/design/", title: "Дизайн" },
-  { href: "/Aip/track/", title: "Трасса" },
-  { href: "/Aip/gallery/", title: "Галерея" },
-  { href: "/Aip/garage/", title: "3D-гараж" },
-  { href: "/Aip/history/museum.html", title: "Музей" },
-  { href: "/Aip/design/colors.html", title: "Цвета" },
-  { href: "/Aip/track/factory.html", title: "Завод" },
-  { href: "/Aip/history/legends.html", title: "Легенды" },
-  { href: "/Aip/about/", title: "О сайте" },
-  { href: "/Aip/contact/", title: "Контакты" }
+  { href: projectBase + "/", title: "Главная" },
+  { href: projectBase + "/history/", title: "История" },
+  { href: projectBase + "/models/", title: "Модели" },
+  { href: projectBase + "/models/911.html", title: "911" },
+  { href: projectBase + "/models/gt3.html", title: "GT3 RS" },
+  { href: projectBase + "/models/boxster.html", title: "718 Boxster" },
+  { href: projectBase + "/models/taycan.html", title: "Taycan" },
+  { href: projectBase + "/models/cayenne.html", title: "Cayenne" },
+  { href: projectBase + "/models/panamera.html", title: "Panamera" },
+  { href: projectBase + "/design/", title: "Дизайн" },
+  { href: projectBase + "/track/", title: "Трасса" },
+  { href: projectBase + "/gallery/", title: "Галерея" },
+  { href: projectBase + "/garage/", title: "3D-гараж" },
+  { href: projectBase + "/history/museum.html", title: "Музей" },
+  { href: projectBase + "/design/colors.html", title: "Цвета" },
+  { href: projectBase + "/track/factory.html", title: "Завод" },
+  { href: projectBase + "/history/legends.html", title: "Легенды" },
+  { href: projectBase + "/about/", title: "О сайте" },
+  { href: projectBase + "/contact/", title: "Контакты" }
 ];
 
 menu?.querySelectorAll("a").forEach((a) => {
@@ -146,7 +151,9 @@ document.addEventListener("click", (e) => {
   }
   if (url.origin !== location.origin) return;
   if (url.protocol === "mailto:" || url.protocol === "tel:") return;
-  const isPage = /\/Aip(\/|$)/i.test(url.pathname) && !/\.(css|js|jpg|jpeg|png|svg|gif|webp)$/i.test(url.pathname);
+  const path = url.pathname.toLowerCase();
+  const base = projectBase.toLowerCase();
+  const isPage = base !== "/" && (path === base || path.startsWith(base + "/")) && !/\.(css|js|jpg|jpeg|png|svg|gif|webp)$/i.test(url.pathname);
   if (!isPage) return;
   if (url.pathname === location.pathname && url.hash) return;
   if (reduced) return;
